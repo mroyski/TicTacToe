@@ -1,5 +1,6 @@
 package com.collabera.tictactoe.game;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GameBoard {
@@ -29,9 +30,20 @@ public class GameBoard {
 			}
 
 			System.out.println("It is " + turn + "'s turn...");
-
-			Integer input = sc.nextInt();
-			sc.nextLine();
+			
+			Integer input = 0;
+			
+			while(true) {
+				try {
+					input = sc.nextInt();
+					sc.nextLine();
+					break;
+				} catch (InputMismatchException e) {
+					System.out.println("Please enter a number.");
+					sc.nextLine();
+					PrintBoard.print();
+				}
+			}
 
 			if ((input < 10) && (board[input] == null)) {
 
