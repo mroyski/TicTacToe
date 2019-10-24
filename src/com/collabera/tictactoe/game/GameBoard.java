@@ -18,6 +18,7 @@ public class GameBoard {
 
 		boolean winner = false;
 		while (winner == false) {
+
 			if (turnsTaken == 9) {
 				System.out.println("No winner this round.");
 				break;
@@ -30,10 +31,10 @@ public class GameBoard {
 			}
 
 			System.out.println("It is " + turn + "'s turn...");
-			
+
 			Integer input = 0;
-			
-			while(true) {
+
+			while (true) {
 				try {
 					input = sc.nextInt();
 					sc.nextLine();
@@ -45,7 +46,7 @@ public class GameBoard {
 				}
 			}
 
-			if ((input < 10) && (board[input] == null)) {
+			if ((input < 10) && (input > 0) && (board[input] == null)) {
 
 				switch (input) {
 				case 1:
